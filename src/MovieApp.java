@@ -73,6 +73,7 @@ public class MovieApp {
 		
 		System.out.println("How would you like to view Our Inventory?");
 		System.out.println("Please type: Title, Director, Genre or anything else to view all films?");
+		System.out.println("To Check out a film Please search by Title.");
 		String search = scan.next();
 		search = search.toLowerCase();
 		switch (search){
@@ -97,9 +98,9 @@ public class MovieApp {
 					}else {
 						System.out.println("Movie not checked out");
 					}
-			}
+			} 
 		}
-		//System.out.println("I'm sorry that doesn't match a Movie Title in our Database.");
+		System.out.println("I'm sorry that doesn't match a Movie Title in our Database.");
 		break;
 		case "director":
 			System.out.println("What Director are you looking for?");
@@ -107,7 +108,8 @@ public class MovieApp {
 			for (Movie m : movieArray){
 				if (m.getDirector().contains(director)){
 					System.out.println("Movie: " + m.toString());
-				}
+				} 
+				
 			}
 			System.out.println("I'm sorry that doesn't match a Director in our Database.");
 			break;
@@ -119,7 +121,7 @@ public class MovieApp {
 			for (Movie m : movieArray){
 				if (m.getGenre().contains(genre)){
 					System.out.println("Movie: " + m.toString());
-				}
+				}  
 			}
 			System.out.println("I'm sorry that doesn't match a Genre in our Database.");
 			break;
@@ -132,55 +134,24 @@ public class MovieApp {
 		
 			try(PrintWriter outputFile = new PrintWriter("movieInventory.txt")){
 				for(Movie m: movieArray){
-					outputFile.println(m);
-				} 
-				{
-					
+					outputFile.println(m);	
 				} 
 				
-			
-				
+			}
+
 				System.out.println("Would you like to Search again? Please enter y or n:");
 				answer = scan.next();
 				// Validate continue options
 				answer = Validation.answer(answer);
-		
-//		//Rewrite arraylist to file
-		
-//		try {
-//			PrintWriter out = new PrintWriter(
-//					new BufferedWriter( 
-//							new FileWriter("movieInventory.txt", true)));
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//				PrintWriter out;
-//				try {
-//					FileWriter writer;
-//					out = new PrintWriter(
-//							new BufferedWriter(
-//							writer = new FileWriter("movieInventory.txt")));
-//					
-//					for(Movie m: movieArray){
-//						writer.write(m);
-//						
-//					}
-//					writer.close();
-//					System.out.println("Database updated!");
-//					out.close();
-//				} catch (IOException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-		// output continue options
-		
+			
+
+			try(PrintWriter outputFile = new PrintWriter("movieInventory.txt")){
+				for(Movie m: movieArray){
+					outputFile.println(m);	
+				} 
+			}
+			
 		}
-		
-	}
-	//	for (Movie m : movieArray) {
-	//  System.out.println(m.getDueDate());
 		System.out.println("Thank you for using CheckFlix and Chill. Have a wonderful Day!");
 		scan.close();
 	}	

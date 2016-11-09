@@ -51,8 +51,12 @@ public class Movie {
 	
 	//@Override
 	public String toString(){
-		return "Movie " + title + ", " + director + ", " + genre + ", " + status + ", " + dueDate;
+		return title + "," + director + "," + genre + "," + status + "," + dueDate;
 	}
+	//@Override
+		public String toString2(){
+			return title + "," + director + "," + genre + "," + status + "," + dueDate;
+		}
 
 	public String getGenre() {
 		return genre;
