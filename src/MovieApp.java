@@ -1,8 +1,11 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 //import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -10,6 +13,9 @@ import java.text.SimpleDateFormat;
 //import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import javax.imageio.IIOException;
+
 import java.util.Date;
 
 public class MovieApp {
@@ -75,29 +81,32 @@ public class MovieApp {
 		String title = scan.next();
 		for (Movie m : movieArray){
 			if (m.getTitle().contains(title)){
-					System.out.println(m.toString());
+					System.out.println("Movie: " + m.toString());
 					System.out.println();
+					
 					System.out.println("Would you like to check this movie out (y/n) ? " + m.getTitle());
 					
 					String choice = "y";
 					choice = scan.next();
 					if (choice.equalsIgnoreCase("y")){
 						m.setStatus("Checked Out");
+						System.out.println("Return this movie on: " + stDate);
 						m.setDueDate(stDate);
 						System.out.println(m);
+	
 					}else {
 						System.out.println("Movie not checked out");
 					}
 			}
 		}
-		System.out.println("I'm sorry that doesn't match a Movie Title in our Database.");
+		//System.out.println("I'm sorry that doesn't match a Movie Title in our Database.");
 		break;
 		case "director":
 			System.out.println("What Director are you looking for?");
 			String director = scan.next();
 			for (Movie m : movieArray){
 				if (m.getDirector().contains(director)){
-					System.out.println(m.toString());
+					System.out.println("Movie: " + m.toString());
 				}
 			}
 			System.out.println("I'm sorry that doesn't match a Director in our Database.");
@@ -109,30 +118,78 @@ public class MovieApp {
 			String genre = scan.next();
 			for (Movie m : movieArray){
 				if (m.getGenre().contains(genre)){
-					System.out.println(m.toString());
+					System.out.println("Movie: " + m.toString());
 				}
 			}
 			System.out.println("I'm sorry that doesn't match a Genre in our Database.");
 			break;
 		default:
 			for (Movie m : movieArray){
-				System.out.println(m.toString());
+				System.out.println("Movie: " + m.toString());
 			}
 			break;
 		}
-		// output continue options
-		System.out.println("Would you like to Search again? Please enter y or n:");
-		answer = scan.next();
-		// Validate continue options
-		answer = Validation.answer(answer);
 		
+			try(PrintWriter outputFile = new PrintWriter("movieInventory.txt")){
+				for(Movie m: movieArray){
+					outputFile.println(m);
+				} 
+				{
+					
+				} 
+				
+			
+				
+				System.out.println("Would you like to Search again? Please enter y or n:");
+				answer = scan.next();
+				// Validate continue options
+				answer = Validation.answer(answer);
+		
+//		//Rewrite arraylist to file
+		
+//		try {
+//			PrintWriter out = new PrintWriter(
+//					new BufferedWriter( 
+//							new FileWriter("movieInventory.txt", true)));
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//				PrintWriter out;
+//				try {
+//					FileWriter writer;
+//					out = new PrintWriter(
+//							new BufferedWriter(
+//							writer = new FileWriter("movieInventory.txt")));
+//					
+//					for(Movie m: movieArray){
+//						writer.write(m);
+//						
+//					}
+//					writer.close();
+//					System.out.println("Database updated!");
+//					out.close();
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+		// output continue options
+		
+		}
+		
+	}
 	//	for (Movie m : movieArray) {
 	//  System.out.println(m.getDueDate());
-		}
 		System.out.println("Thank you for using CheckFlix and Chill. Have a wonderful Day!");
 		scan.close();
-		
-		//Rewrite arraylist to file
-	} 
+	}	
 }
+		
+
+		
+		
+	
+
+
 		
