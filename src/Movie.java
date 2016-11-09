@@ -38,9 +38,9 @@ public class Movie {
 		this.status = status;
 	}
 	
-	@Override
+	//@Override
 	public String toString(){
-		return "Movie" + title + ", " + director + ", " + status;
+		return "Movie " + title + ", " + director + ", " + genre + ", " + status;
 	}
 
 	public String getGenre() {
