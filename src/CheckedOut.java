@@ -1,11 +1,12 @@
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class CheckedOut extends Movie {
 	private Date date;
 	
-	public CheckedOut(String title, String director, String genre, String status, Date date) {
+	public CheckedOut(String title, String director, String genre, String status, Date date, LocalDate DueDate) {
 		
-		super(title, director, genre, status);
+		super(title, director, genre, status, DueDate);
 		this.date = date;
 		
 	}

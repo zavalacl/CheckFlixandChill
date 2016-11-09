@@ -1,69 +1,8 @@
-”50 First Dates”, ”Peter Segal”, ”RomCom”, "Checked out"
-”Aladin”, ”Ron Clements”, ”Animated”, Available
-”Anchorman”, ”Adam McKay”, ”Comedy”, “Available”
-”Batman Begins”, ”Christopher Nolan”, ”Action”, “Available”
-”Back to the Future”, ”Robert Zemekis”, ”Sci-Fi”, “Available”
-”Blast from the Past”, ”Hugh Wilson”, ”RomCom”, “Available”
-”Captain America: Civil War”, ”Russo Brothers”, ”Action”, “Available”
-”Cast Away”, ”Rober Zemekis”, ”Drama”, “Available”
-”Constantine”, ”Francis Lawrence”, ”Fantasy”, “Available”
-”Cool Runnings”, ”Jon Turteltaub”, ”Comedy”, “Available”
-”Dave”, ”Ivan Reitman”, ”Comedy”, “Available”
-”Deadpool”, ”Tim Mille”, ”Action”, “Available”
-”Deep Blue Sea”, ”Renny Harlin”, ”Horror”, “Available”
-”The Departed”, ”Martin Scorsese”, ”Drama”, “Available”
-”Donny Darko”, “Richard Kelly”, ”Fantasy”, “Checked out”
-”Erin Brockovich”, ”Steven Soderbergh”, ”Drama”, “Available”
-”Fallen”, ”Gregory Hoblit”, ”Fantasy”, “Available”
-”Fantasia 2000”, ”Paul Brizzi”, ”Animation”, “Available”
-“A Few Good Men”, “Rob Reiner”, “Drama”, “Available”
-”Fight Club”, ”David Fincher”, ”Drama”, “Available”
-”Finding Nemo”, ”Andrew Stanton”, ”Animation”, “Available”
-”Ghostbusters”, ”Ivan Reitman”, ”Fantasy”, “Available”
-”Gnomeo & Juliet”, ”Kelly Asbury”, ”Animation”, “Available”
-”The Godfather”, ”Francis Ford Coppola”, ”Drama”, “Available”
-”Goon”, ”Michael Dowse”, ”Comedy”, “Available”
-”Harry Potter and the Sorcerers Stone”, ”Chris Columbus”, ”Fantasy”, “Available”
-”Hitch”, ”Andy Tennant”, ”Comedy”, “Available”
-”Ice Age”, ”Chris Wedge”, ”Animation”, “Available”
-”Inception”, ”Christopher Nolan”, ”Action”, “Available”
-”Inside Out”, ”Pete Docter”, ”Animation”, “Available”
-”Jaws”, ”Steven Spielberg”, ”Horror”, “Available”
-”John Wick”, ”Chad Stahelski”, ”Action”, “Available”
-”The Jungle Book”, ”Wolfgang Reitherman”, ”Animation”, “Available”
-”Jurrasic Park”, ”Steven Spielberge”, ”Sci-Fi”, “Available”
-”Kung Fu Panda”, ”Mark Osborne”, ”Animation”, “Available”
-”A League of Their Own”, ”Penny Marshall”, ”Drama”, “Available”
-”Lord of the Rings: Fellowship of the Ring”, ”Peter Jackson”, ”Fantasy”, “Available”
-”Major League”, ”David S. Ward”, ”Comedy”, “Available”
-”Megamind”, vTom McGrath”, ”Animation”, “Available”
-”Men in Black”, ”Barry Sonnefeld”, ”Action”, “Available”
-”Miracle”, ”Gavin O’Conner”, ”Drama”, “Available”
-”Mystery Alaska”, ”Jay Roach”, ”Comedy”, “Available”
-”The New Guy”, ”Ed Decter”, ”Comedy”, “Available”
-”Now You See Me”, ”Louis Leterrier”, ”Thriller”, “Available”
-”The Other Guys”, ”Adam McKay”, ”Action”, “Available”
-”Peter Pan”, ”Clyde Geronimi”, ”Animation”, “Available”
-”Pirates of the Caribbean: The Curse of the Black Pearl”, ”Gore Verbinski”, ”Fantasy”, “Available”
-”The Princess Bride”, ”Rob Reiner”, ”Adventure”, “Available”
-”The Princess Diaries”, ”Garry Marshall”, ”Comedy”, “Available”
-”Raging Bull”, ”Martin Scorsese”, ”Drama”, “Available”
-”Remember the Titans”, ”Boaz Yakin”, ”Drama”, “Available”
-”Rise of the Guardians”, ”Peter Ramsey”, ”Animation”, “Available”
-”Rock Star”, ”Stephen Herek”, ”Drama”, “Available”
-”Seven”, ”David Fincher”, ”Mystery”, “Available”
-”The Shawshank Redemption”, ”Frank Darabont”, ”Drama”, “Available”
-”Shrek”, ”Andrew Adamson”, ”Animation”, “Available”
-”South Park: Bigger Longer & Uncut”, ”Trey Parker”, ”Animation”, “Available”
-”Star Wars Episode 4 A New Hope”, ”George Lucas”, ”Sci-Fi”, “Available”
-”Team America: World Police”, ”Trey Parker”, ”Adventure”, “Available”
-”Teenage Mutant Ninja Turtles”, ”Steve Barron”, ”Sci-Fi”, “Available”
-”The Terminator”, ”James Cameron”, ”Action”, “Available”
-”Tin Cup”, ”Ron Shelton”, ”RomCom”, “Available”
-”Top Gun”, ”Tony Scott”, ”Drama”, “Available”
-”Tron”, ”Steven Lisberger”, ”Sci-Fi”, “Available”
-”The Usual Suspects”, ”Bryan Singer”, ”Drama”, “Available”
-”What Women Want”, ”Nancy Meyers”, ”RomCom”, “Available”
-”Wreck It Ralph”, ”Rich Moore”, ”Animation”, “Available”
-”X-Men: Days of Future Past”, ”Bryan Singer”, ”Action”, “Available”
-”Your Highness”, ”David Gordon Green”, ”Fantasy”, “Available”
+�50 First Dates�, �Peter Segal�, �RomCom�, �Available�,2016-10-18
+�Aladin�, �Ron Clements�, �Animated�, �Available�,2016-10-18
+�Anchorman�, �Adam McKay�, �Comedy�, �Available�,2016-10-18
+�Batman Begins�, �Christopher Nolan�, �Action�, �Available�,2016-10-18
+�Back to the Future�, �Robert Zemekis�, �Sci-Fi�, �Available�,2016-10-18
+�Blast from the Past�, �Hugh Wilson�, �RomCom�, �Available�,2016-10-18
+�Captain America: Civil War�, �Russo Brothers�, �Action�, �Available�,2016-10-18
+�Cast Away�, �Rober Zemekis�, �Drama�, �Available�,2016-10-18
