@@ -1,14 +1,14 @@
-import java.time.LocalDate;
+
 
 public class Movie {
 	private String title;
 	private String director;
 	private String genre;
 	private String status;
-	private LocalDate dueDate;
+	private String dueDate;
 	
 	
-	public Movie(String title, String director, String genre, String status) {
+	public Movie(String title, String director, String genre, String status, String dueDate) {
 		//super();
 		this.title = title;
 		this.director = director;
@@ -17,11 +17,11 @@ public class Movie {
 		this.dueDate = dueDate;
 	}
 
-	public LocalDate getDueDate() {
+	public String getDueDate() {
 		return dueDate;
 	}
 
-	public void setDueDate(LocalDate dueDate) {
+	public void setDueDate(String dueDate) {
 		this.dueDate = dueDate;
 	}
 

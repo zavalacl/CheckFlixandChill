@@ -3,11 +3,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+//import java.io.InputStreamReader;
+//import java.text.DateFormat;
+//import java.text.SimpleDateFormat;
+//import java.time.LocalDate;
+//import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Date;
@@ -19,10 +19,10 @@ public class MovieApp {
         return d; }
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		Date backDate = new Date();
-		Date today = new Date(); 
-		backDate = addDays(today, 14);
-		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+//		Date backDate = new Date();
+//		Date today = new Date(); 
+//		backDate = addDays(today, 14);
+//		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 //		String stDate = df.format(backDate);
 //		String now = df.format(today);
 //		int n = 0;
@@ -56,7 +56,7 @@ public class MovieApp {
 			while((line = br.readLine()) != null) {
 				
 				String[] words = line.split(",");
-					movieArray.add(new Movie(words[0], words[1], words[2], words[3]));
+					movieArray.add(new Movie(words[0], words[1], words[2], words[3], words[4]));
 
 
 				
@@ -70,6 +70,7 @@ public class MovieApp {
 		while (answer.equalsIgnoreCase("y")) {
 		System.out.println("How would you like to view Our Inventory?");
 		System.out.println("By: Title, Director, Genre or Type anything to View All?");
+		System.out.println("To check out a film, you must search by title.");
 		String search = scan.next();
 		search = search.toLowerCase();
 		switch (search){
@@ -81,6 +82,7 @@ public class MovieApp {
 					System.out.println(m.toString());
 			}
 		}
+		System.out.println("I'm sorry that doesn't match a Movie Title in our Database.");
 		break;
 		case "director":
 			System.out.println("What Director are you looking for?");
@@ -103,6 +105,7 @@ public class MovieApp {
 					System.out.println(m.toString());
 				}
 			}
+			System.out.println("I'm sorry that doesn't match a Genre in our Database.");
 			break;
 		default:
 			for (Movie m : movieArray){
