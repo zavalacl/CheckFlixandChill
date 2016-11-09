@@ -8,7 +8,7 @@ public class Movie {
 	private LocalDate dueDate;
 	
 	
-	public Movie(String title, String director, String genre, String status, LocalDate dueDate) {
+	public Movie(String title, String director, String genre, String status) {
 		//super();
 		this.title = title;
 		this.director = director;

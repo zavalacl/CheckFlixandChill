@@ -4,42 +4,49 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-
+import java.util.Date;
 
 public class MovieApp {
-
+	
+	public static Date addDays(Date d, int days) {
+        d.setTime(d.getTime() + days * 1000 * 60 * 60 * 24);
+        return d; }
+	
 	public static void main(String[] args) throws FileNotFoundException {
+		Date backDate = new Date();
+		Date today = new Date(); 
+		backDate = addDays(today, 14);
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+//		String stDate = df.format(backDate);
+//		String now = df.format(today);
+//		int n = 0;
+		File file = new File("movieInventory.txt");
+//		String toCheck = " ";
+		String answer = "y";
+
 		//display list by reading all file lines
 		//Search text for director
 		//Search text for title keywords
 		//if checked out, let them know
 		//if not, check it out to them and set return date to 2 weeks from now
-//<<<<<<< HEAD
-		System.out.println("Welcome to the CheckFlix and Chill Movie Checkout System");
-		ArrayList<Movie> movieArray = new ArrayList<Movie>();
-		int n = 0;
-		File file = new File("movieInventory.txt");
-		String toCheck = " ";
-		String answer = "y";
-//=======
 		
 		ArrayList<Movie> movieArray = new ArrayList<Movie>();
 		
-		File file = new File("movieInventory.txt");
-		//Scanner scan = new Scanner(file);
+		file = new File("movieInventory.txt");
+		Scanner scan = new Scanner(System.in);
 
-//>>>>>>> 86b118ed929dc3cec062b80db43a964ff6f4ba8d
 		
 		BufferedReader br = null;
 		String line;
 		
 		
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("uuuu-MM-dd");
+//      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("uuuu-MM-dd");
 		
 		try{
 			FileReader fr = new FileReader(file);
@@ -49,113 +56,71 @@ public class MovieApp {
 			while((line = br.readLine()) != null) {
 				
 				String[] words = line.split(",");
-				String dateToString = words[4];
-				if(dateToString.isEmpty()){
-					movieArray.add(new Movie(words[0], words[1], words[2], words[3], null));
+					movieArray.add(new Movie(words[0], words[1], words[2], words[3]));
 
-				}else{
 
-				LocalDate date = LocalDate.parse(dateToString, formatter);
-
-				movieArray.add(new Movie(words[0], words[1], words[2], words[3], date));
-				}
-			}
-			
-//<<<<<<< HEAD
-			movieArray.add(new Movie(words[0], words[1], words[2], words[3]));
-			
-		}
-		while (answer.equalsIgnoreCase("y")) {			
-		System.out.println("Search by movie title: ");
-		Scanner input = new Scanner(System.in);
-		String choice = input.next();
-		
-		for (Movie mov : movieArray){
-			if (choice.equalsIgnoreCase(mov.getTitle())) 
-				System.out.println("The Following" + mov.toString());
-				toCheck = mov.getTitle();
-		}
-//=======
+				
+								}
 			} catch(FileNotFoundException e){
 				System.out.println(e);
 		}catch (IOException e){
 			System.out.println(e);
 		}
-		for (Movie m : movieArray) {
-			System.out.println(m.getDueDate());
-		}
-		
-
-		/*
-		String[] words = null;
-		String text = null;
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-		try {
-			while((text = reader.readLine()) != null && !text.isEmpty()) {
-			    words = text.split(",");
-				movieArray.add(new Movie(words[0], words[1], words[2], words[3]));	
-				//System.out.println(movieArray);
-
+		System.out.println("Welcome to Checkflix and Chill!");
+		while (answer.equalsIgnoreCase("y")) {
+		System.out.println("How would you like to view Our Inventory?");
+		System.out.println("By: Title, Director, Genre or Type anything to View All?");
+		String search = scan.next();
+		search = search.toLowerCase();
+		switch (search){
+		case "title":
+		System.out.println("What title are you looking for?");
+		String title = scan.next();
+		for (Movie m : movieArray){
+			if (m.getTitle().contains(title)){
+					System.out.println(m.toString());
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-		
-		
-		System.out.println(words[1]);
-		*/
-		
-	//	while ((scan.hasNextLine())){
-		//	String line = scan.nextLine();
-			//String[] words = line.split(",");
-		
-			
-			
 		}
+		break;
+		case "director":
+			System.out.println("What Director are you looking for?");
+			String director = scan.next();
+			for (Movie m : movieArray){
+				if (m.getDirector().contains(director)){
+					System.out.println(m.toString());
+				}
+				//if (!m.getDirector().contains(director)){
+				//	System.out.println("I'm sorry that doesn't match a Director in our Database.");
+				//}
+			}
+			System.out.println("I'm sorry that doesn't match a Director in our Database.");
+			break;
+		case "genre":
+			System.out.println("What Genre are you looking for?");
+			String genre = scan.next();
+			for (Movie m : movieArray){
+				if (m.getGenre().contains(genre)){
+					System.out.println(m.toString());
+				}
+			}
+			break;
+		default:
+			for (Movie m : movieArray){
+				System.out.println(m.toString());
+			}
+			break;
 		}
-//		Scanner input = new Scanner(System.in);			
-//		System.out.println("Search by movie title: ");
-//		String choice = input.next();
-//		
-//		for(Movie i : movieArray){
-//			if (choice.equalsIgnoreCase(i.getTitle()));
-//				System.out.println(movieArray.get(0).getTitle());
+		// output continue options
+		System.out.println("Would you like to Search again? Please enter y or n:");
+		answer = scan.next();
+		// Validate continue options
+		answer = Validation.answer(answer);
 		
->>>>>>> 86b118ed929dc3cec062b80db43a964ff6f4ba8d
-		
-		  System.out.println("Movie not Found");
-		  
-		  //Once found offer to check out movie
-		  //System.out.println("Would you like to check out + mov.getTitle?")
-		  // toCheck setStatus Checked Out
+	//	for (Movie m : movieArray) {
+	//  System.out.println(m.getDueDate());
 		}
-
-	
-	
-	
-		
-		
-		
-		
-//<<<<<<< HEAD
-				// output continue options
-				System.out.println("Would you like to play again? Please enter y or n:");
-				answer = scan.next();
-				// Validate continue options
-				answer = Validation.answer(answer);
+		System.out.println("Thank you for using CheckFlix and Chill. Have a wonderful Day!");
+		scan.close();
 	}
-//	}
-}	
-=======
-	
->>>>>>> 86b118ed929dc3cec062b80db43a964ff6f4ba8d
-
-/*while (scan.hasNextLine()){
-String line = scan.nextLine();
-if(line.contains(word)){
-	System.out.println("Found: " + word);
-	break;
 }
-}*/
+		
