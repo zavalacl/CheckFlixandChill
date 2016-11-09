@@ -4,8 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 //import java.io.InputStreamReader;
-//import java.text.DateFormat;
-//import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 //import java.time.LocalDate;
 //import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -19,34 +19,33 @@ public class MovieApp {
         return d; }
 	
 	public static void main(String[] args) throws FileNotFoundException {
-//		Date backDate = new Date();
-//		Date today = new Date(); 
-//		backDate = addDays(today, 14);
-//		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-//		String stDate = df.format(backDate);
-//		String now = df.format(today);
+		Date backDate = new Date();
+		Date today = new Date(); 
+		backDate = addDays(today, 14);
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		String stDate = df.format(backDate);
+		String now = df.format(today);
 //		int n = 0;
 		File file = new File("movieInventory.txt");
 //		String toCheck = " ";
 		String answer = "y";
+		Scanner scan = new Scanner(System.in);
 
 		//display list by reading all file lines
 		//Search text for director
 		//Search text for title keywords
 		//if checked out, let them know
 		//if not, check it out to them and set return date to 2 weeks from now
-		
+		System.out.println("Welcome to Checkflix and Chill!");
+		while (answer.equalsIgnoreCase("y")) {
 		ArrayList<Movie> movieArray = new ArrayList<Movie>();
 		
 		file = new File("movieInventory.txt");
-		Scanner scan = new Scanner(System.in);
+		
 
 		
 		BufferedReader br = null;
 		String line;
-		
-		
-//      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("uuuu-MM-dd");
 		
 		try{
 			FileReader fr = new FileReader(file);
@@ -57,20 +56,17 @@ public class MovieApp {
 				
 				String[] words = line.split(",");
 					movieArray.add(new Movie(words[0], words[1], words[2], words[3], words[4]));
-
-
-				
-								}
-			} catch(FileNotFoundException e){
+					}
+			
+		} catch(FileNotFoundException e){
 				System.out.println(e);
 		}catch (IOException e){
 			System.out.println(e);
 		}
-		System.out.println("Welcome to Checkflix and Chill!");
-		while (answer.equalsIgnoreCase("y")) {
+		
+		
 		System.out.println("How would you like to view Our Inventory?");
-		System.out.println("By: Title, Director, Genre or Type anything to View All?");
-		System.out.println("To check out a film, you must search by title.");
+		System.out.println("Please type: Title, Director, Genre or anything else to view all films?");
 		String search = scan.next();
 		search = search.toLowerCase();
 		switch (search){
@@ -80,6 +76,18 @@ public class MovieApp {
 		for (Movie m : movieArray){
 			if (m.getTitle().contains(title)){
 					System.out.println(m.toString());
+					System.out.println();
+					System.out.println("Would you like to check this movie out (y/n) ? " + m.getTitle());
+					
+					String choice = "y";
+					choice = scan.next();
+					if (choice.equalsIgnoreCase("y")){
+						m.setStatus("Checked Out");
+						m.setDueDate(stDate);
+						System.out.println(m);
+					}else {
+						System.out.println("Movie not checked out");
+					}
 			}
 		}
 		System.out.println("I'm sorry that doesn't match a Movie Title in our Database.");
@@ -91,14 +99,13 @@ public class MovieApp {
 				if (m.getDirector().contains(director)){
 					System.out.println(m.toString());
 				}
-				//if (!m.getDirector().contains(director)){
-				//	System.out.println("I'm sorry that doesn't match a Director in our Database.");
-				//}
 			}
 			System.out.println("I'm sorry that doesn't match a Director in our Database.");
 			break;
 		case "genre":
 			System.out.println("What Genre are you looking for?");
+			System.out.println("Action, Adventure, Animation, Comedy, Drama, Fantasy, Horror, "
+					+ "Mystery, RomCom, Sci-Fi, or Thriller: ");
 			String genre = scan.next();
 			for (Movie m : movieArray){
 				if (m.getGenre().contains(genre)){
@@ -124,6 +131,8 @@ public class MovieApp {
 		}
 		System.out.println("Thank you for using CheckFlix and Chill. Have a wonderful Day!");
 		scan.close();
-	}
+		
+		//Rewrite arraylist to file
+	} 
 }
 		

@@ -1,27 +1,42 @@
-import java.sql.Date;
-import java.time.LocalDate;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class CheckedOut extends Movie {
-	private Date date;
 	
-	public CheckedOut(String title, String director, String genre, String status, Date date, LocalDate DueDate) {
+	public static Date addDays(Date d, int days) {
+        d.setTime(d.getTime() + days * 1000 * 60 * 60 * 24);
+        return d; }
+	
+	
+	public static void main(String[] args) {
 		
-		super(title, director, genre, status, DueDate);
-		this.date = date;
+	}
+		public CheckedOut(String title, String director, String genre, String status, Date date, String dueDate) {
+			
+			
+		
+		super(title, director, genre, status, dueDate);
+		Date backDate = new Date();
+		Date today = new Date(); 
+		backDate = addDays(today, 14);
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		String stDate = df.format(backDate);
+		//String now = df.format(today);
+		status = "Checked Out";
+		dueDate = stDate;
 		
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
+	
+	
+	
 	
 	@Override
 	public String toString(){
-		String out = "Checked out: " + super.toString() + "[" + date + "] ";
+		String out = "Checked out: " + super.toString() + "[" + getDueDate() + "] ";
 		return out;
 	}
 }
